@@ -9,7 +9,6 @@ describe('TC_Login - Login Feature', () => {
   })
 
   it('TC_001 - Pengguna dapat login menggunakan username dan password benar', () => {
-
     cy.get('input[name="username"]').type('Admin')
     cy.get('input[name="password"]').type('admin123')
     cy.get('button[type="submit"]').click()
