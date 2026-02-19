@@ -1,6 +1,6 @@
-import dashboardPage from '../support/pages/dashboardPage'
-import loginPage from '../support/pages/loginPage'
-import loginData from '../fixtures/loginData.json'
+import dashboardPage from "../support/pageObjects/dashboardPage";
+import loginPage from "../support/pageObjects/loginPage";
+import loginData from "../fixtures/loginData.json";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false 
