@@ -1,6 +1,8 @@
-import dashboardPage from "../support/pageObjects/dashboardPage";
-import loginPage from "../support/pageObjects/loginPage";
+import dashboardPage from "../support/dashboardPage.js";
+import loginPage from "../support/loginPage.js";
 import loginData from "../fixtures/loginData.json";
+
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false 
@@ -16,16 +18,16 @@ describe('TC_Login - Login Feature', () => {
   it('TC_001 - Pengguna dapat login menggunakan username dan password benar', () => {
 
      loginPage.fillUsername(loginData.validUsername)
-     loginPage.fillPassword()
-     loginPage.submit()
+     loginPage.fillPassword(loginData.validPassword)
+     loginPage.submit() 
      dashboardPage.verifyOnDashboard()
 
-     loginPage.DashboardVisible()
+     dashboardPage.dashboardVisible()
     //cy.get('input[name="username"]').type('Admin')
     //cy.get('input[name="password"]').type('admin123')
     //cy.get('button[type="submit"]').click()
-    //cy.get('button[type="submit"]').click()
     //cy.url().should('include', '/dashboard')
+
     //cy.contains('Dashboard').should('be.visible')
   })
 
@@ -75,18 +77,19 @@ describe('TC_Login - Login Feature', () => {
 
     // login pertama
     loginPage.fillUsername(loginData.validUsername)
-    loginPage.fillPassword()
+    loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()
+
+    dashboardPage.verifyOnDashboard()
     //cy.get('input[name="username"]').type('Admin')
     //cy.get('input[name="password"]').type('admin123')
     //cy.get('button[type="submit"]').click()
 
-    dashboardPage.verifyOnDashboard()
     //cy.url().should('include', '/dashboard')
 
     // logout
-      dashboardPage.clickUserDropdown()
-      dashboardPage.clickLogout()
+    dashboardPage.clickUserDropdown()
+    dashboardPage.clickLogout()
     //cy.get('.oxd-userdropdown-tab').click()
     //cy.contains('Logout').click()
 
@@ -94,11 +97,11 @@ describe('TC_Login - Login Feature', () => {
     loginPage.verifyOnLoginPage()
     cy.wait(2000)
     loginPage.fillUsername(loginData.validUsername)
-    loginPage.fillPassword()
+    loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()
 
     dashboardPage.verifyOnDashboard()
-    dashboardPage.DashboardVisible()
+    dashboardPage.dashboardVisible()
 
     //cy.url().should('include', 'login')
     //cy.wait(2000)
@@ -116,7 +119,7 @@ describe('TC_Login - Login Feature', () => {
     loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()
     dashboardPage.verifyOnDashboard()
-    dashboardPage.DashboardVisible()
+    dashboardPage.dashboardVisible()
     //cy.get('input[name="username"]').type('admin')
     //cy.get('input[name="password"]').type('admin123')
     //cy.get('button[type="submit"]').click()
@@ -151,12 +154,8 @@ describe('TC_Login - Login Feature', () => {
 
   it('TC_009 - Pengguna tidak dapat login saat username dan password tidak terisi', () => {
 
-    loginPage.fillUsername('')
-    loginPage.fillPassword('')
     loginPage.submit()
     loginPage.verifyOnLoginPage()
-    //cy.get('input[name="username"]').type('')
-    //cy.get('input[name="password"]').type('')
     //cy.get('button[type="submit"]').click()
     //cy.url().should('include', 'login')
 

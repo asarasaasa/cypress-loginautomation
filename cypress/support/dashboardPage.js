@@ -1,8 +1,8 @@
-class dashboardPage {
+class DashboardPage {
     verifyOnDashboard() {
         cy.url().should('include', '/dashboard')
     }
-     DashboardVisible() {
+    dashboardVisible() {
         cy.contains('Dashboard').should('be.visible')
     }
     clickUserDropdown() {
@@ -12,3 +12,4 @@ class dashboardPage {
         cy.contains('Logout').click()
     }
 }
+export default new DashboardPage
