@@ -2,8 +2,6 @@ import DashboardPage from "../support/dashboardPage.js";
 import loginPage from "../support/loginPage.js";
 import loginData from "../fixtures/loginData.json";
 
-const dashboardPage = new DashboardPage()
-
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false 
 })
@@ -19,9 +17,9 @@ describe('TC_Login - Login Feature', () => {
      loginPage.fillUsername(loginData.validUsername)
      loginPage.fillPassword(loginData.validPassword)
      loginPage.submit() 
-     dashboardPage.verifyOnDashboard()
+     DashboardPage.verifyOnDashboard()
 
-     dashboardPage.dashboardVisible()
+     DashboardPage.dashboardVisible()
   })
 
   it('TC_002 - Pengguna tidak dapat login menggunakan username dan password salah', () => {
@@ -59,11 +57,11 @@ describe('TC_Login - Login Feature', () => {
     loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()
 
-    dashboardPage.verifyOnDashboard()
+    DashboardPage.verifyOnDashboard()
 
     // logout
-    dashboardPage.clickUserDropdown()
-    dashboardPage.clickLogout()
+    DashboardPage.clickUserDropdown()
+    DashboardPage.clickLogout()
 
     // login kembali
     loginPage.verifyOnLoginPage()
@@ -72,8 +70,8 @@ describe('TC_Login - Login Feature', () => {
     loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()
 
-    dashboardPage.verifyOnDashboard()
-    dashboardPage.dashboardVisible()
+    DashboardPage.verifyOnDashboard()
+    DashboardPage.dashboardVisible()
   })
 
   it('TC_006 - Pengguna dapat login pada huruf awal username menggunakan huruf kecil', () => {
@@ -81,8 +79,8 @@ describe('TC_Login - Login Feature', () => {
     loginPage.fillUsername(loginData.usernameCaseInsensitive)
     loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()
-    dashboardPage.verifyOnDashboard()
-    dashboardPage.dashboardVisible()
+    DashboardPage.verifyOnDashboard()
+    DashboardPage.dashboardVisible()
   })
 
   it('TC_007 - Pengguna tidak dapat login saat username tidak diisi dan password diisi', () => {
