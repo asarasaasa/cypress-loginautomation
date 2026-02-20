@@ -75,7 +75,7 @@ describe('TC_Login - Login Feature', () => {
   })
 
   it('TC_006 - Pengguna dapat login pada huruf awal username menggunakan huruf kecil', () => {
-    
+  
     loginPage.fillUsername(loginData.usernameCaseInsensitive)
     loginPage.fillPassword(loginData.validPassword)
     loginPage.submit()

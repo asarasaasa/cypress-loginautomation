@@ -12,4 +12,4 @@ class DashboardPage {
         cy.contains('Logout').click()
     }
 }
-export default new DashboardPage
+export default new DashboardPage()
