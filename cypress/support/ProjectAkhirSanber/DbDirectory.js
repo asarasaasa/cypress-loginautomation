@@ -1,6 +1,6 @@
 class DirectoryPage {
 
-    // --- NAVIGATION ---
+
     goToDirectory() {
         cy.contains('a.oxd-main-menu-item', 'Directory')
           .should('be.visible')
@@ -8,7 +8,7 @@ class DirectoryPage {
         cy.url().should('include', '/directory')
     }
 
-    // --- INPUTS ---
+  
     employeeSearchInput() {
         return cy.get('input[placeholder="Type for hints..."]');
     }
@@ -29,12 +29,12 @@ class DirectoryPage {
         return cy.contains('button', 'Reset');
     }
 
-    // --- AUTOCOMPLETE ---
+
     autocompleteOptions() {
         return cy.get('.oxd-autocomplete-option');
     }
 
-    // --- FILTER ACTIONS ---
+
     selectJobTitle(title) {
         this.jobTitleDropdown().click();
         cy.get('.oxd-select-dropdown').eq(0).contains(title).click();
@@ -64,7 +64,7 @@ class DirectoryPage {
           .click();
     }
 
-    // --- VALIDATIONS ---
+    
     validateEmployeeInList(name) {
         cy.contains(name).should('exist');
     }

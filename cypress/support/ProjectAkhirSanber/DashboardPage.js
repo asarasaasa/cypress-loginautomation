@@ -15,10 +15,6 @@ class DashboardPage {
         return cy.get(`button[title="${title}"]`).should('be.visible').click();
     }
 
-    // clickQuickLaunch(title) {
-    //     this.ClickQuickLaunchButton(title);
-    // }
-
     timeAtWorkWidget() {
         return cy.contains('Time at Work').should('be.visible');
     }
