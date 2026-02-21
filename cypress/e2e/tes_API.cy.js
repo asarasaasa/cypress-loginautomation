@@ -23,12 +23,12 @@ describe('API Testing',() => {
             method: 'POST',
             url: 'https://api.escuelajs.co/api/v1/categories/',
             body: {
-                "name" : "meja",
+                "name" : "kotak",
                 "image" : "https://placeimg.com/640/480/any"
             }
         }).then((response) => {
             expect(response.status).to.eq(201)
-            expect(response.body).to.have.property('name', 'meja')
+            expect(response.body).to.have.property('name', 'kotak')
             expect(response.body).to.have.property('image', 'https://placeimg.com/640/480/any')
         })
     })
@@ -51,33 +51,33 @@ describe('API Testing',() => {
             method: 'POST',
             url: 'https://api.escuelajs.co/api/v1/categories/',
             body: {
-                "name" : "kursi",
+                "name" : "botol minum",
                 "image" : "https://placeimg.com/640/480/any"
             }
         }).then((response) => {
             expect(response.status).to.eq(201)
-            expect(response.body).to.have.property('name', 'kursi')
+            expect(response.body).to.have.property('name', 'botol minum')
             expect(response.body).to.have.property('image', 'https://placeimg.com/640/480/any')
         })
     })
     it('update a category', () => {
         cy.request({
             method: 'PUT',
-            url: 'https://api.escuelajs.co/api/v1/categories/32',
+            url: 'https://api.escuelajs.co/api/v1/categories/11',
             body: {
-                "name" : "botol",
+                "name" : "kecap",
                 "image" : "https://placeimg.com/640/480/any"
             }
         }).then((response) => {
             expect(response.status).to.eq(200)
-            expect(response.body).to.have.property('name', 'botol')
+            expect(response.body).to.have.property('name', 'kecap')
             expect(response.body).to.have.property('image', 'https://placeimg.com/640/480/any')
         })
     })
     it('delete a category', () => {
         cy.request({
             method: 'DELETE',
-            url: 'https://api.escuelajs.co/api/v1/categories/11'
+            url: 'https://api.escuelajs.co/api/v1/categories/20'
         }).then((response) => {
             expect(response.status).to.eq(200)
         })

@@ -1,0 +1,9 @@
+{
+  "validEmployee": "Peter",
+  "invalidEmployee": "Asa",
+  "employeeFullName": "Peter Mac Anderson",
+  "jobTitle": "Chief Financial Officer",
+  "location": "New York Sales Office",
+  "partialEmployee": "Sania",
+  "jobTitleFilter": "Customer Success Manager"
+}
