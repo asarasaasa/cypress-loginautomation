@@ -1,6 +1,6 @@
-import DashboardPage from "../../support/ProjectAkhirSanber/DashboardPage"
-import LoginPage from "../../support/ProjectAkhirSanber/LoginPage"
-import LoginPageData from "../../fixtures/ProjectAkhirSanber/LoginPageData.json"
+import DashboardPage from "../../support/ProjectAkhirSanber/DashboardPage.js"
+import LoginPage from "../../support/ProjectAkhirSanber/LoginPage.js"
+import LoginPageData from "../../fixtures/ProjectAkhirSanber/loginPageData.json"
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false 

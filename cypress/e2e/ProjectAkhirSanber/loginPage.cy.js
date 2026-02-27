@@ -1,7 +1,7 @@
-import LoginPage from "../../support/ProjectAkhirSanber/LoginPage"
-import LoginPage from "../../support/ProjectAkhirSanber/LoginPage"
-import DasboardPage from "../../support/ProjectAkhirSanber/DashboardPage"
-import DashboardPage from "../../support/ProjectAkhirSanber/DashboardPage"
+import LoginPage from "../../support/ProjectAkhirSanber/LoginPage.js"
+import DashboardPage from "../../support/ProjectAkhirSanber/DashboardPage.js"
+import loginPageData from "../../fixtures/ProjectAkhirSanber/loginPageData.json"
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false 
@@ -17,8 +17,8 @@ describe('TC_Login - Login Feature', () => {
     cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/action-summary').as('loginsuccess');
     LoginPage.login(loginPageData.validUser.username, loginPageData.validUser.password)
     cy.wait('@loginsuccess')
-    DasboardPage.VerifyOnDashboard()
-    DasboardPage.DashboardVisible()
+    DashboardPage.VerifyOnDashboard()
+    DashboardPage.DashboardVisible()
   })
 
   it('TC_002 - User dapat login setelah logout sebelumnya ', () => {
@@ -27,7 +27,7 @@ describe('TC_Login - Login Feature', () => {
     cy.intercept('GET', 'https://opensource-demo.orangehrmlive.com/web/index.php/api/v2/dashboard/employees/action-summary').as('loginsuccess');
     LoginPage.login(loginPageData.validUser.username, loginPageData.validUser.password)
     cy.wait('@loginsuccess')
-    DasboardPage.VerifyOnDashboard()
+    DashboardPage.VerifyOnDashboard()
 
     // logout
     LoginPage.logout()
@@ -39,7 +39,7 @@ describe('TC_Login - Login Feature', () => {
     LoginPage.login(loginPageData.validUser.username, loginPageData.validUser.password)
     cy.wait('@Relogin')
 
-    DasboardPage.VerifyOnDashboard()
+    DashboardPage.VerifyOnDashboard()
     DashboardPage.DashboardVisible()
   })
 
@@ -48,7 +48,7 @@ describe('TC_Login - Login Feature', () => {
     LoginPage.login(loginPageData.upperlowerUser.username, loginPageData.upperlowerUser.password) 
     cy.wait('@loginsuccess')
 
-    DasboardPage.VerifyOnDashboard()
+    DashboardPage.VerifyOnDashboard()
     DashboardPage.DashboardVisible()
   })
 

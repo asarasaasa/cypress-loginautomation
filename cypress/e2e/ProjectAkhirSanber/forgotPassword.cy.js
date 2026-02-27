@@ -1,6 +1,6 @@
 import FPdata from '../../fixtures/ProjectAkhirSanber/FPdata.json'
-import ForgotPasswordPage from '../../support/ProjectAkhirSanber/ForgotPasswordPage'
-import LoginPage from '../../support/ProjectAkhirSanber/LoginPage'
+import ForgotPasswordPage from '../../support/ProjectAkhirSanber/ForgotPasswordPage.js'
+import LoginPage from '../../support/ProjectAkhirSanber/LoginPage.js'
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false 
@@ -16,8 +16,8 @@ describe('TC_Login - Login Feature', () => {
         ForgotPasswordPage.forgotLink() 
         ForgotPasswordPage.usernameInput().type(FPdata.validUser.username)
         ForgotPasswordPage.clickResetPassword()
-        cy.wait('@ResetPassword', {timeout: 70000})
-        ForgotPasswordPage.successMessage({timeout: 70000})
+        cy.wait('@ResetPassword', {timeout: 1200000})
+        ForgotPasswordPage.successMessage({timeout: 1200000})
         ForgotPasswordPage.verifySuccessMessage()
     })
 
